@@ -42,8 +42,7 @@ class _HadethTabState extends State<HadethTab> {
                     )
                   : ListView.separated(
                       itemBuilder: (_, index) {
-                        return HadethTitleWidget(
-                            allHadethItems[index].title, index);
+                        return HadethTitleWidget(allHadethItems[index]);
                       },
                       itemCount: allHadethItems.length,
                       separatorBuilder: (_, index) {

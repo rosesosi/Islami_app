@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/Home/hadeth/hadeth_model.dart';
+import 'package:islami_app/hadeth_details/hadeth_details_screen.dart';
 
 class HadethTitleWidget extends StatelessWidget {
-  String title;
-  int index;
+  HadethModel hadeth;
 
-  HadethTitleWidget(this.title, this.index);
+  HadethTitleWidget(this.hadeth);
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +14,18 @@ class HadethTitleWidget extends StatelessWidget {
       //   Navigator.pushNamed(context, SuraDetailsScreen.routeName,
       //       arguments: SuraDetailsARgs(suraName: title, index: index));
       // },
-      child: Container(
-        alignment: Alignment.center,
-        child: Text(
-          title,
-          style: TextStyle(
-            fontSize: 28,
+      child: InkWell(
+        onTap: () {
+          Navigator.pushNamed(context, HadethDetailsScreen.routeName,
+              arguments: hadeth);
+        },
+        child: Container(
+          alignment: Alignment.center,
+          child: Text(
+            hadeth.title,
+            style: TextStyle(
+              fontSize: 28,
+            ),
           ),
         ),
       ),
