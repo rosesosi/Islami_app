@@ -10,22 +10,16 @@ class HadethTitleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      // onTap: () {
-      //   Navigator.pushNamed(context, SuraDetailsScreen.routeName,
-      //       arguments: SuraDetailsARgs(suraName: title, index: index));
-      // },
-      child: InkWell(
-        onTap: () {
-          Navigator.pushNamed(context, HadethDetailsScreen.routeName,
-              arguments: hadeth);
-        },
-        child: Container(
-          alignment: Alignment.center,
-          child: Text(
-            hadeth.title,
-            style: TextStyle(
-              fontSize: 28,
-            ),
+      onTap: () {
+        Navigator.pushNamed(context, HadethDetailsScreen.routeName,
+            arguments: hadeth);
+      },
+      child: Container(
+        alignment: Alignment.center,
+        child: Text(
+          hadeth.title,
+          style: TextStyle(
+            fontSize: 28,
           ),
         ),
       ),

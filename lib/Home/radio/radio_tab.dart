@@ -18,7 +18,7 @@ class RadioTab extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Icon(
-                Icons.navigate_before,
+                Icons.skip_previous,
                 size: 40,
                 color: Theme.of(context).primaryColor,
               ),
