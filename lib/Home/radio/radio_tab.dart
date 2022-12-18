@@ -10,22 +10,19 @@ class RadioTab extends StatelessWidget {
           Image.asset('assets/images/radio_image.png'),
           Text(
             'Quran Kareem Radio ',
-            style: TextStyle(
-              fontSize: 24,
-            ),
-          ),
+            style: Theme.of(context).textTheme.headline4),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Icon(
                 Icons.skip_previous,
-                size: 40,
-                color: Theme.of(context).primaryColor,
+                size: 30,
+                color: Theme.of(context).accentColor,
               ),
               Icon(Icons.play_arrow,
-                  size: 60, color: Theme.of(context).primaryColor),
+                  size: 50, color: Theme.of(context).accentColor),
               Icon(Icons.skip_next,
-                  size: 40, color: Theme.of(context).primaryColor),
+                  size: 30, color: Theme.of(context).accentColor),
             ],
           )
         ],

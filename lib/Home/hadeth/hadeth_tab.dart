@@ -18,7 +18,7 @@ class _HadethTabState extends State<HadethTab> {
           Expanded(
               flex: 2, child: Image.asset('assets/images/hadeth_logo.png')),
           Container(
-            color: Theme.of(context).primaryColor,
+            color: Theme.of(context).accentColor,
             height: 2,
             margin: EdgeInsets.all(8.0),
           ),
@@ -26,11 +26,11 @@ class _HadethTabState extends State<HadethTab> {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               'Hadeth',
-              style: TextStyle(fontSize: 25),
+              style: Theme.of(context).textTheme.headline4,
             ),
           ),
           Container(
-            color: Theme.of(context).primaryColor,
+            color: Theme.of(context).accentColor,
             height: 2,
             margin: EdgeInsets.all(8.0),
           ),
@@ -47,8 +47,8 @@ class _HadethTabState extends State<HadethTab> {
                       itemCount: allHadethItems.length,
                       separatorBuilder: (_, index) {
                         return Container(
-                          color: Theme.of(context).primaryColor,
-                          height: 2,
+                          color: Theme.of(context).accentColor,
+                          height: 1,
                           margin: EdgeInsets.symmetric(horizontal: 64),
                         );
                       },

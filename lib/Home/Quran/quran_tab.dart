@@ -128,7 +128,7 @@ class QuranTab extends StatelessWidget {
               flex: 2,
               child: Image.asset('assets/images/qur2an_screen_logo.png')),
           Container(
-            color: Theme.of(context).primaryColor,
+            color: Theme.of(context).accentColor,
             height: 2,
             margin: EdgeInsets.all(8.0),
           ),
@@ -136,11 +136,11 @@ class QuranTab extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               'Sura Name',
-              style: TextStyle(fontSize: 25),
+              style: Theme.of(context).textTheme.headline4,
             ),
           ),
           Container(
-            color: Theme.of(context).primaryColor,
+            color: Theme.of(context).accentColor,
             height: 2,
             margin: EdgeInsets.all(8.0),
           ),
@@ -153,8 +153,8 @@ class QuranTab extends StatelessWidget {
               itemCount: SuraNames.length,
               separatorBuilder: (_, index) {
                 return Container(
-                  color: Theme.of(context).primaryColor,
-                  height: 2,
+                  color: Theme.of(context).accentColor,
+                  height: 1,
                   margin: EdgeInsets.symmetric(horizontal: 64),
                 );
               },

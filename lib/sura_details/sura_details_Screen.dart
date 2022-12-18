@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/sura_details/sura_details_arguments.dart';
 import 'package:islami_app/sura_details/verse_item.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/settings_provider.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
   static const String routeName = 'SuraDetailsScreen';
@@ -15,6 +18,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var settingProvider = Provider.of<SettingsProvider>(context);
     SuraDetailsARgs? args =
         ModalRoute.of(context)?.settings.arguments as SuraDetailsARgs;
     //read file ht25d w2t ad eh ?? bt25d w2t le3'yt ma tsht3'l keda
@@ -22,9 +26,9 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
     if (verses.isEmpty) readfile(args.index + 1);
 
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/images/default_bg.png'),
+              image: AssetImage(settingProvider.getMainBackgroundImage()),
               fit: BoxFit.fill)),
       child: Scaffold(
           appBar: AppBar(
@@ -33,25 +37,24 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
           body: Card(
             elevation: 18,
             shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            color: Colors.white,
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             margin: EdgeInsets.symmetric(vertical: 64, horizontal: 16),
             child: verses.isEmpty
                 ? Center(
-                    child: CircularProgressIndicator(),
-                  )
+              child: CircularProgressIndicator(),
+            )
                 : ListView.separated(
-                    itemBuilder: (_, index) {
-                      return VerseWidget(verses[index], index + 1);
-                    },
-                    itemCount: verses.length,
-                    separatorBuilder: (_, index) {
-                      return Container(
-                        color: Theme.of(context).primaryColor,
+                itemBuilder: (_, index) {
+                  return VerseWidget(verses[index], index + 1);
+                },
+                itemCount: verses.length,
+                separatorBuilder: (_, index) {
+                  return Container(
+                    color: Theme.of(context).accentColor,
                         height: 1,
                         margin: EdgeInsets.symmetric(horizontal: 64),
                       );
-                    }),
+                }),
           )),
     );
   }
