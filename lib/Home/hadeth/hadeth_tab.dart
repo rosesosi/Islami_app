@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/Home/hadeth/hadeth_model.dart';
 import 'package:islami_app/Home/hadeth/hadeth_title_widget.dart';
 
@@ -25,7 +26,7 @@ class _HadethTabState extends State<HadethTab> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              'Hadeth',
+              AppLocalizations.of(context)!.hadeth,
               style: Theme.of(context).textTheme.headline4,
             ),
           ),

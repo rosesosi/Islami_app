@@ -1,15 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/providers/settings_provider.dart';
 import 'package:provider/provider.dart';
 
-class ThemeBottomSheet extends StatefulWidget {
+class LocaleBottomSheet extends StatefulWidget {
   @override
-  State<ThemeBottomSheet> createState() => _ThemeBottomSheetState();
+  State<LocaleBottomSheet> createState() => _LocaleBottomSheetState();
 }
 
-class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
+class _LocaleBottomSheetState extends State<LocaleBottomSheet> {
   @override
   Widget build(BuildContext context) {
     var settingProvider = Provider.of<SettingsProvider>(context);
@@ -20,21 +19,21 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
         children: [
           InkWell(
               onTap: () {
-                settingProvider.changeTheme(ThemeMode.light);
+                settingProvider.changeLocale('en');
               },
-              child: settingProvider.isDarkMode()
-                  ? getUnselectedItem(AppLocalizations.of(context)!.light)
-                  : getSelectedItem(AppLocalizations.of(context)!.light)),
+              child: settingProvider.currentLang == 'en'
+                  ? getSelectedItem('English')
+                  : getUnselectedItem('English')),
           SizedBox(
             height: 12,
           ),
           InkWell(
               onTap: () {
-                settingProvider.changeTheme(ThemeMode.dark);
+                settingProvider.changeLocale('ar');
               },
-              child: settingProvider.isDarkMode()
-                  ? getSelectedItem(AppLocalizations.of(context)!.dark)
-                  : getUnselectedItem(AppLocalizations.of(context)!.dark)),
+              child: settingProvider.currentLang == 'ar'
+                  ? getSelectedItem('العربية')
+                  : getUnselectedItem('العربية')),
         ],
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TasbehTab extends StatefulWidget {
   @override
@@ -20,7 +21,7 @@ class _TasbehTabState extends State<TasbehTab> {
           Container(
             margin: EdgeInsets.symmetric(vertical: 15),
             child: Text(
-              'Tasbehat',
+              AppLocalizations.of(context)!.tasbehat_number,
               style: TextStyle(fontSize: 24),
             ),
           ),
@@ -42,7 +43,7 @@ class _TasbehTabState extends State<TasbehTab> {
                   Counter++;
                 });
               },
-              child: Text('Sobhan Allah'),
+              child: Text('سبحان الله'),
               style: ElevatedButton.styleFrom(
                   primary: Theme.of(context).primaryColor,
                   shape: RoundedRectangleBorder(

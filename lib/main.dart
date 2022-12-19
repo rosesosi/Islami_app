@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:islami_app/Home/HomeScreen.dart';
 import 'package:islami_app/SplashScreen.dart';
 import 'package:islami_app/hadeth_details/hadeth_details_screen.dart';
@@ -19,6 +21,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     var settingProvider = Provider.of<SettingsProvider>(context);
     return MaterialApp(
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        //AppLocalizations.supportedLocales,
+        Locale('en', ''), // English, no country code
+        Locale('ar', ''),
+      ],
+      locale: Locale(settingProvider.currentLang),
       debugShowCheckedModeBanner: false,
       title: 'Islami ',
       theme: MyTheme.lightTheme,
